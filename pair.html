@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QUEEN DANI V7 DIRECT PAIR</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-size: cover;
+      background-position: center;
+      animation: changeBackground 15s infinite;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    @keyframes changeBackground {
+      0%, 25% { background-image: url('https://files.catbox.moe/1xhjgs.jpg'); }
+      50% { background-image: url('https://files.catbox.moe/1xhjgs.jpg'); }
+      75% { background-image: url('https://files.catbox.moe/lgj3y5.jpeg'); }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    .glass-card {
+      width: 380px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .logo h1 {
+      color: #fff;
+      font-size: 28px;
+      font-weight: 700;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      letter-spacing: 1px;
+    }
+
+    .logo h1 span {
+      color: #8a2be2;
+      text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+    }
+
+    .subtitle {
+      color: #e0e0e0;
+      font-size: 14px;
+      margin-bottom: 25px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-container {
+      display: flex;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 5px;
+      gap: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .input-container:focus-within {
+      border-color: #8a2be2;
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+    }
+
+    .input-container input {
+      border-radius: 12px 0 0 12px;
+      background: rgba(255, 255, 255, 0.9);
+      width: 100%;
+      flex-basis: 70%;
+      padding: 15px;
+      border: none;
+      border-left: 3px solid #8a2be2;
+      color: #333;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .input-container input:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 1);
+      border-left: 3px solid #007bff;
+    }
+
+    .input-container input::placeholder {
+      color: #888;
+    }
+
+    .input-container button {
+      flex-basis: 30%;
+      padding: 15px;
+      background: linear-gradient(135deg, #8a2be2 0%, #007bff 100%);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .input-container button:hover {
+      background: linear-gradient(135deg, #007bff 0%, #8a2be2 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+    }
+
+    .input-container button:active {
+      transform: translateY(0);
+    }
+
+    .waiting-message {
+      color: #fff;
+      font-size: 14px;
+      margin: 15px 0;
+      display: none;
+      font-weight: 300;
+    }
+
+    .code-display {
+      margin: 20px 0;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .code-text {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .code-text:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .code-text span {
+      color: #8a2be2;
+      text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+    }
+
+    .music-control {
+      margin-top: 20px;
+    }
+
+    .music-button {
+      background: linear-gradient(135deg, #8a2be2 0%, #007bff 100%);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 auto;
+    }
+
+    .music-button:hover {
+      background: linear-gradient(135deg, #007bff 0%, #8a2be2 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 12px;
+      margin-top: 20px;
+      font-weight: 300;
+    }
+
+    @media (max-width: 500px) {
+      .glass-card {
+        width: 90%;
+        padding: 25px 20px;
+        margin: 20px;
+      }
+
+      .input-container {
+        flex-direction: column;
+      }
+
+      .input-container input {
+        border-radius: 12px;
+        margin-bottom: 5px;
+      }
+
+      .input-container button {
+        border-radius: 12px;
+        padding: 12px;
+      }
+    }
+
+    /* Animation for code display */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 107, 107, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="glass-card">
+      <div class="logo">
+        <h1>QUEEN-<span>DANI-V7</span> PAIR</h1>
+      </div>
+      
+      <div class="subtitle">
+        pair seamlessly here.
+      </div>
+
+      <div class="input-group">
+        <div class="input-container">
+          <input type="tel" id="number" placeholder="2349120185747" name="number">
+          <button id="submit">
+            <i class="fas fa-sign-in-alt"></i> ENTER
+          </button>
+        </div>
+      </div>
+
+      <div id="waiting-message" class="waiting-message">
+        <i class="fas fa-spinner fa-spin"></i> Please wait a moment...
+      </div>
+
+      <div id="pair" class="code-display">
+        <div class="code-text">Enter your number above</div>
+      </div>
+
+      <div class="music-control">
+        <button class="music-button" onclick="toggleMusic()">
+          <i class="fas fa-music"></i>
+          <span id="music-text">Play Music</span>
+        </button>
+        <audio id="backgroundMusic" loop>
+          <source src="https://files.catbox.moe/9comi4.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <div class="footer-text">
+        Secure WhatsApp Session Pairing
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const pairElement = document.getElementById("pair");
+      const submitButton = document.getElementById("submit");
+      const numberInput = document.getElementById("number");
+      const waitingMessage = document.getElementById("waiting-message");
+      const backgroundMusic = document.getElementById("backgroundMusic");
+      const musicText = document.getElementById("music-text");
+      let isPlaying = false;
+
+      // Test if music can be loaded
+      backgroundMusic.addEventListener('error', function() {
+        console.log('Error loading audio file');
+      });
+
+      backgroundMusic.addEventListener('canplay', function() {
+        console.log('Audio file loaded successfully');
+      });
+
+      async function copyCode() {
+        try {
+          const text = document.getElementById("copy").innerText;
+          const obj = document.getElementById("copy");
+          await navigator.clipboard.writeText(obj.innerText.replace('CODE: ', ''));
+          obj.innerText = "✓ COPIED!";
+          obj.style.color = "#00ff00";
+          setTimeout(() => {
+            obj.innerText = text;
+            obj.style.color = "#fff";
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+          alert('Failed to copy code. Please copy manually.');
+        }
+      }
+
+      submitButton.addEventListener("click", async (e) => {
+        e.preventDefault();
+        
+        if (!numberInput.value) {
+          pairElement.innerHTML = '<div class="error-message">Please Enter Your Number</div>';
+          return;
+        }
+
+        const cleanNumber = numberInput.value.replace(/[^0-9]/g, "");
+        
+        if (cleanNumber.length < 9) {
+          pairElement.innerHTML = '<div class="error-message">Please Enter a Valid Number</div>';
+          return;
+        }
+
+        // Format the number for display
+        let formattedNumber = "+" + cleanNumber;
+        if (cleanNumber.length >= 9) {
+          formattedNumber = "+" + cleanNumber.replace(/(\d{3})(\d{3})(\d+)/, '$1 $2 $3');
+        }
+        
+        numberInput.value = formattedNumber;
+        numberInput.style.color = "#333";
+        waitingMessage.style.display = 'block';
+        pairElement.innerHTML = '<div class="code-text">Connecting to server...</div>';
+        
+        try {
+          console.log('Sending request to server...');
+          const response = await axios.get(`/code?number=${cleanNumber}`);
+          console.log('Server response:', response.data);
+          
+          const code = response.data.code || "No code received";
+          pairElement.innerHTML = `
+            <div id="copy" onclick="copyCode()" class="code-text pulse">
+              CODE: <span>${code}</span>
+            </div>
+          `;
+          waitingMessage.style.display = 'none';
+          
+        } catch (error) {
+          console.error('Request failed:', error);
+          pairElement.innerHTML = `
+            <div class="error-message">
+              Connection Failed: ${error.message || 'Unknown error'}
+            </div>
+          `;
+          waitingMessage.style.display = 'none';
+        }
+      });
+
+      function toggleMusic() {
+        try {
+          if (isPlaying) {
+            backgroundMusic.pause();
+            isPlaying = false;
+            musicText.textContent = "Play Music";
+          } else {
+            backgroundMusic.play().then(() => {
+              isPlaying = true;
+              musicText.textContent = "Pause Music";
+            }).catch(err => {
+              console.error('Error playing music:', err);
+              alert('Error playing music. Please check the audio file.');
+            });
+          }
+        } catch (err) {
+          console.error('Music error:', err);
+        }
+      }
+
+      // Add some interactive effects
+      numberInput.addEventListener('focus', () => {
+        numberInput.parentElement.style.transform = 'scale(1.02)';
+      });
+
+      numberInput.addEventListener('blur', () => {
+        numberInput.parentElement.style.transform = 'scale(1)';
+      });
+
+      // Make functions globally available
+      window.copyCode = copyCode;
+      window.toggleMusic = toggleMusic;
+    });
+  </script>
+</body>
+</html>
